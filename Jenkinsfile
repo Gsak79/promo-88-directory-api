@@ -7,9 +7,9 @@ pipeline {
       }
     }
 
-    stage('Log') {
+    stage('Build') {
       steps {
-        sh 'ls -la'
+        sh 'docker build -t springio/gs-spring-boot-docker .'
       }
     }
 
