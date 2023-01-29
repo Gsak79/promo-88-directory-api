@@ -13,5 +13,15 @@ pipeline {
       }
     }
 
+    stage('Push') {
+      environment {
+        DOCKERHUB_USER = 'gonchis'
+        DOCKERHUB_PASSWORD = 'lukego2002'
+      }
+      steps {
+        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD && docker push gonchis/promo88-directory:latest'
+      }
+    }
+
   }
 }
