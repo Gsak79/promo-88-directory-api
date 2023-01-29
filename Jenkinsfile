@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh './mvnw clean package && docker compose up'
+        sh 'docker compose up'
       }
     }
 
