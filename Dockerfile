@@ -1,8 +1,10 @@
-FROM maven:3.8.5-openjdk-17 AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package
+FROM maven:3.8.5-openjdk-17 AS maven
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+RUN mvn clean package 
 
 FROM openjdk:17-alpine
-COPY --from=build /home/app/target/promo88-directory-0.0.1-SNAPSHOT.jar /usr/local/lib/
+ARG JAR_FILE=promo88-directory-0.0.1-SNAPSHOT.jar
+WORKDIR /opt/app
+COPY --from=maven /usr/src/app/target/${JAR_FILE} /opt/app/
 ENTRYPOINT ["java","-jar","promo88-directory-0.0.1-SNAPSHOT.jar"]
