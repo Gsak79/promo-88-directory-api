@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout code') {
+    stage('Git') {
       steps {
         git(url: 'https://github.com/Gsak79/promo-88-directory-api.git', branch: 'main')
       }
