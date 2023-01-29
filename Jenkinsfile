@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t springio/gs-spring-boot-docker .'
+        sh './mvnw clean package && docker compose up'
       }
     }
 
