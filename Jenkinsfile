@@ -19,7 +19,7 @@ pipeline {
         DOCKERHUB_PASSWORD = 'lukego2002'
       }
       steps {
-        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD && docker push gonchis/promo88-directory:latest'
+        sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD && docker push promo88-directory:latest'
       }
     }
 
