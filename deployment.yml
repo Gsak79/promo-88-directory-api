@@ -39,6 +39,13 @@ spec:
                 secretKeyRef:
                   name: postgres-credentials
                   key: postgres_password
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+              value: org.hibernate.dialect.PostgreSQLDialect
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_HBM2DDL_AUTO
+              value: create-drop
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL
+              value: true
+
 
 # service type loadbalancer       
 ---
